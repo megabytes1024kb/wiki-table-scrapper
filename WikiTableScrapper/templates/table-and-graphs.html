@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Olympic Analysis - Mega Bytes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<style type="text/css">
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th {
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 4px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <DIV class="row">
+    <div class="col-md-12" style="text-align: center; font-weight: 400; font-family: 'Roboto Condensed',Arial,sans-serif;">
+      <h3>
+      Olympic Analysis
+      </h3>
+    </div>
+    
+  </DIV>
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-8 col-sm-2">
+              <table id="myTable2">
+              <tr>
+              <!--When a header is clicked, run the sortTable function, with a parameter,
+              0 for sorting by names, 1 for sorting by country: -->
+                <th onclick="sortTable(0)">rank   </th>
+                <th onclick="sortTable(1)">Country</th>
+                <th onclick="sortTable(2)">gold   </th>
+                <th onclick="sortTable(3)">silver </th>
+                <th onclick="sortTable(4)">bronze < /th>
+                <th onclick="sortTable(5)">total  < /th>
+              </tr>
+              {% for row in records %}
+                <tr>
+                  <td> {{ row.rank }}</td>
+                  <td> {{ row.country }}</td>
+                  <td> {{ row.gold }}</td>
+                  <td> {{ row.silver }}</td>
+                  <td> {{ row.bronze }}</td>
+                  <td> {{ row.total }}</td>
+                </tr>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<script type="text/javascript">
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable2");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc"; 
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+        // if (Number(x.innerHTML) > Number(y.innerHTML)) {
+        //   shouldSwitch = true;
+        //   break;
+        // }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++; 
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}  
+
+
+</script>
+
+</body>
+</html>

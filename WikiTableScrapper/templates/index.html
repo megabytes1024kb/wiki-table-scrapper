@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.item label {
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+    padding: 45px;
+    text-align: center;
+    margin-bottom: 0;
+    -webkit-transition: all .3s cubic-bezier(.77,0,.175,1);
+    -moz-transition: all .3s cubic-bezier(.77,0,.175,1);
+    -ms-transition: all .3s cubic-bezier(.77,0,.175,1);
+    -o-transition: all .3s cubic-bezier(.77,0,.175,1);
+    transition: all .3s cubic-bezier(.77,0,.175,1);
+    position: relative;
+    border: 1px solid #d9e1e6;
+    color: #777;
+    cursor: pointer;
+}
+.item p{
+	font-size: 20px;
+	color: Green;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+	<DIV class="row">
+		<div class="col-md-12" style="text-align: center; font-weight: 400; font-family: 'Roboto Condensed',Arial,sans-serif;">
+			<h3>
+			Moody's Olympic Analysis
+			</h3>
+		</div>
+		
+	</DIV>
+	<div class="row">
+    	<div class="col-md-4 col-md-offset-4">
+    		<div class="row">
+				<form method="GET" action="/scrape-data/">
+				  <div class="form-group">
+				    <label for="year">Year</label>
+				    <input type="text" class="form-control" name="year" id="year" placeholder="Enter The Year">
+				  </div>
+				  <div class="form-group">
+				    <label for="url">Link</label>
+				    <input type="text" class="form-control" name="url" id="url" placeholder="Enter the link/URL to scrape the data">
+				  </div>
+				  
+				  <button type="submit" class="btn btn-primary">Submit</button>
+				  <a href="/" class="btn btn-primary" style="float: right;">Back</a>
+				</form>
+			</div>
+    	</div>
+  	</div>
+
+</div>
+
+<script type="text/javascript">
+	
+
+
+</script>
+
+</body>
+</html>

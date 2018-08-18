@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Olympic Analysis - Mega Bytes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Chars -->
+  <link rel="stylesheet" type="text/css" href="http://www.jqchart.com/jquery/chart/Content/jquery.jqChart.css" />
+  <script src="http://www.jqchart.com/jquery/chart/Scripts/jquery-ui-1.10.4.min.js"></script>
+  <script src="http://www.jqchart.com/jquery/chart/Scripts/jquery.jqChart.min.js"></script>
+  <script src="http://www.jqchart.com/jquery/chart/Scripts/prettify.js"></script>
+
+  <!-- Chart js  -->
+  <script src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
+  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+
+
+
+<style type="text/css">
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <DIV class="row">
+    <div class="col-md-12" style="text-align: center; font-weight: 400; font-family: 'Roboto Condensed',Arial,sans-serif;">
+      <h3>
+      Olympic Analysis
+      </h3>
+    </div>
+    
+  </DIV>
+  <div class="row">
+      <div class="col-md-6">
+          <ul>
+            {% for olympic in records %}
+              <li> <a href="/show-data/{{olympic}}">{{olympic}}</a></li>
+            {% endfor %}
+          </ul>
+      </div>
+      <div class="col-md-6">
+
+      </div>
+  </div>
+<script type="text/javascript">
+  
+
+
+</script>
+
+</body>
+</html>
